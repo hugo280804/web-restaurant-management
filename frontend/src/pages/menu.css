@@ -1,0 +1,174 @@
+/* ====== LAYOUT ====== */
+.menu-container {
+  display: flex;
+  height: 100%;
+  background: #fdf6f0;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ====== CATEGORY ====== */
+.category {
+  width: 260px;
+  background: #fff;
+  border-right: 1px solid #eee;
+  padding: 15px;
+}
+
+.category-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.category-header h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c2c2c;
+}
+
+.category-header button {
+  background: #c0392b;
+  color: white;
+  border: none;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.category-header button:hover {
+  background: #a93226;
+}
+
+/* item */
+.category-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 6px;
+  transition: 0.2s;
+}
+
+.category-item:hover {
+  background: #fbeee9;
+}
+
+/* active */
+.category-item.active {
+  background: #8b0000;
+  color: white;
+}
+
+/* actions */
+.category-actions button {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* ====== MENU ====== */
+.menu {
+  flex: 1;
+  padding: 20px;
+}
+
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 18px;
+}
+
+.menu-header h3 {
+  color: #2c2c2c;
+}
+
+.menu-header button {
+  background: #e67e22;
+  color: white;
+  border: none;
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.menu-header button:hover {
+  background: #ca6f1e;
+}
+
+/* grid */
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 18px;
+}
+
+/* card */
+.menu-card {
+  background: white;
+  border-radius: 14px;
+  padding: 12px;
+  text-align: center;
+  border: 1px solid #eee;
+  transition: 0.25s;
+}
+
+.menu-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* image */
+.menu-img {
+  font-size: 40px;
+}
+
+/* name */
+.menu-card h4 {
+  margin: 5px 0;
+  color: #2c2c2c;
+}
+
+/* price */
+.menu-card p {
+  color: #c0392b;
+  font-weight: 600;
+}
+
+/* actions */
+.menu-actions {
+  display: flex;
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.menu-actions button {
+  flex: 1;
+  border: none;
+  padding: 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* edit */
+.menu-actions button:first-child {
+  background: #8b0000;
+  color: white;
+}
+
+.menu-actions button:first-child:hover {
+  background: #6e0000;
+}
+
+/* delete */
+.menu-actions button:last-child {
+  background: #e74c3c;
+  color: white;
+}
+
+.menu-actions button:last-child:hover {
+  background: #c0392b;
+}
