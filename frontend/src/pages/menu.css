@@ -1,17 +1,20 @@
 /* ====== LAYOUT ====== */
 .menu-container {
   display: flex;
-  height: 100%;
-  background: #fdf6f0;
+  height: 100vh;
+  background: #f5f1ea;
   font-family: "Segoe UI", sans-serif;
+  overflow: auto;
 }
 
 /* ====== CATEGORY ====== */
 .category {
   width: 260px;
-  background: #fff;
-  border-right: 1px solid #eee;
+  background: #fffaf3;
+  border-right: 1px solid #e0d6c8;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .category-header {
@@ -24,23 +27,24 @@
 .category-header h3 {
   font-size: 16px;
   font-weight: 600;
-  color: #2c2c2c;
+  color: #5c4033;
 }
 
 .category-header button {
-  background: #c0392b;
-  color: white;
+  background: linear-gradient(135deg, #c8a97e, #e0c097);
+  color: #4b2e1e;
   border: none;
   padding: 6px 10px;
   border-radius: 6px;
   cursor: pointer;
+  font-size: 13px;
 }
 
 .category-header button:hover {
-  background: #a93226;
+  background: linear-gradient(135deg, #b8966d, #d6b589);
 }
 
-/* item */
+/* CATEGORY ITEMS */
 .category-item {
   display: flex;
   justify-content: space-between;
@@ -50,98 +54,140 @@
   cursor: pointer;
   margin-bottom: 6px;
   transition: 0.2s;
+  background: #fffaf3;
 }
 
 .category-item:hover {
-  background: #fbeee9;
+  background: #e0d6c8;
 }
 
-/* active */
 .category-item.active {
-  background: #8b0000;
-  color: white;
+  background: linear-gradient(135deg, #c8a97e, #e0c097);
+  color: #4b2e1e;
 }
 
-/* actions */
 .category-actions button {
-  border: none;
   background: transparent;
+  border: none;
   cursor: pointer;
+  font-size: 14px;
+  margin-left: 4px;
+}
+
+.category-actions button:hover {
+  opacity: 0.7;
 }
 
 /* ====== MENU ====== */
 .menu {
   flex: 1;
   padding: 20px;
+  background: #f3ede5;
 }
 
 .menu-header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: 18px;
 }
 
 .menu-header h3 {
-  color: #2c2c2c;
+  color: #5c4033;
+  font-size: 18px;
 }
 
 .menu-header button {
-  background: #e67e22;
-  color: white;
+  background: linear-gradient(135deg, #c8a97e, #e0c097);
+  color: #4b2e1e;
   border: none;
   padding: 7px 14px;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 14px;
 }
 
 .menu-header button:hover {
-  background: #ca6f1e;
+  background: linear-gradient(135deg, #b8966d, #d6b589);
 }
 
-/* grid */
+/* MENU GRID */
 .menu-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
   gap: 18px;
 }
 
-/* card */
+/* MENU CARD */
 .menu-card {
-  background: white;
+  background: #fffaf3;
   border-radius: 14px;
   padding: 12px;
   text-align: center;
-  border: 1px solid #eee;
+  border: 1px solid #e0d6c8;
   transition: 0.25s;
+  position: relative;
 }
 
 .menu-card:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
 }
 
-/* image */
+/* MENU IMAGE */
 .menu-img {
   font-size: 40px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 
-/* name */
+.menu-img img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+/* MENU NAME & PRICE */
 .menu-card h4 {
   margin: 5px 0;
-  color: #2c2c2c;
+  color: #4b2e1e;
+  font-size: 15px;
 }
 
-/* price */
 .menu-card p {
-  color: #c0392b;
+  margin: 4px 0;
   font-weight: 600;
+  color: #c8a97e;
+  font-size: 14px;
 }
 
-/* actions */
+.menu-card p.status {
+  color: #8b5e3c;
+  font-weight: 500;
+}
+
+/* BADGE CHƯA CÔNG THỨC */
+.badge-no-recipe {
+  display: inline-block;
+  background: #f39c12;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: 6px;
+  margin-bottom: 4px;
+}
+
+/* MENU ACTIONS */
 .menu-actions {
   display: flex;
   gap: 6px;
   margin-top: 10px;
+  flex-wrap: wrap;
 }
 
 .menu-actions button {
@@ -151,24 +197,117 @@
   border-radius: 6px;
   cursor: pointer;
   font-size: 13px;
+  font-weight: 500;
+  min-width: 60px;
 }
 
-/* edit */
-.menu-actions button:first-child {
-  background: #8b0000;
-  color: white;
+/* EDIT BUTTON */
+.menu-actions button.edit {
+  background: linear-gradient(135deg, #c8a97e, #e0c097);
+  color: #4b2e1e;
 }
 
-.menu-actions button:first-child:hover {
-  background: #6e0000;
+.menu-actions button.edit:hover {
+  background: linear-gradient(135deg, #b8966d, #d6b589);
 }
 
-/* delete */
-.menu-actions button:last-child {
-  background: #e74c3c;
-  color: white;
-}
-
-.menu-actions button:last-child:hover {
+/* DELETE BUTTON */
+.menu-actions button.delete {
   background: #c0392b;
+  color: white;
+}
+
+.menu-actions button.delete:hover {
+  background: #922b21;
+}
+
+/* ADD RECIPE BUTTON */
+.menu-actions button.add-recipe {
+  background: #f39c12;
+  color: #fff;
+}
+
+.menu-actions button.add-recipe:hover {
+  background: #d87c0f;
+}
+
+/* ====== MODAL ====== */
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fffaf3;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+  z-index: 1000;
+  width: 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal h4 {
+  margin-bottom: 10px;
+  color: #5c4033;
+  text-align: center;
+  font-size: 16px;
+}
+
+.modal input,
+.modal select {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #d6c7b2;
+  font-size: 14px;
+  width: 100%;
+  background: #fff;
+}
+
+/* MODAL ACTIONS */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.modal-actions button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  color: white;
+  font-size: 14px;
+}
+
+.modal-actions button:first-child {
+  background: linear-gradient(135deg, #c8a97e, #e0c097);
+  color: #4b2e1e;
+}
+
+.modal-actions button:first-child:hover {
+  background: linear-gradient(135deg, #b8966d, #d6b589);
+}
+
+.modal-actions button:last-child {
+  background: #c0392b;
+}
+
+.modal-actions button:last-child:hover {
+  background: #922b21;
+}
+
+/* MODAL OVERLAY */
+.modal::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: -1;
 }

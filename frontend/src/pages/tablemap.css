@@ -1,0 +1,220 @@
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+/* ===== LAYOUT ===== */
+.layout {
+  display: flex;
+  height: 100vh;
+  background: #f5f1ea;
+}
+
+/* ===== LEFT PANEL ===== */
+.panel {
+  width: 260px;
+  padding: 20px;
+  background: #fffaf3;
+  border-right: 1px solid #e0d6c8;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.panel h3 {
+  color: #5c4033;
+  font-weight: 600;
+}
+
+/* ===== INPUT ===== */
+.panel input,
+.panel select {
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #d6c7b2;
+  background: #fff;
+  transition: 0.2s;
+}
+
+.panel input:focus,
+.panel select:focus {
+  border-color: #c8a97e;
+  box-shadow: 0 0 0 2px rgba(200,169,126,0.2);
+  outline: none;
+}
+
+/* ===== BUTTON ===== */
+button {
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* panel button */
+.panel button {
+  padding: 10px;
+  background: linear-gradient(135deg, #8b5e3c, #a47149);
+  color: white;
+  font-weight: 500;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.panel button:hover {
+  background: linear-gradient(135deg, #6f472c, #8b5e3c);
+  transform: translateY(-1px);
+}
+
+.panel button:active {
+  transform: scale(0.96);
+}
+
+/* ===== MAP CONTAINER ===== */
+.map-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== FLOOR TABS ===== */
+.floor-tabs {
+  display: flex;
+  gap: 10px;
+  padding: 12px;
+  background: #fffaf3;
+  border-bottom: 1px solid #e0d6c8;
+  align-items: center;
+  overflow-x: auto;
+}
+
+/* từng tầng */
+.floor-tabs > div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+/* button tầng */
+.floor-tabs button {
+  padding: 6px 14px;
+  background: #e9dfd3;
+  color: #5c4033;
+  border-radius: 10px;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.floor-tabs button:hover {
+  background: #d8c7b3;
+}
+
+/* active */
+.floor-tabs .active {
+  background: linear-gradient(135deg, #c8a97e, #e0c097);
+  color: #4b2e1e;
+  font-weight: 600;
+}
+
+/* nút x */
+.floor-tabs div button:last-child {
+  background: #c0392b;
+  padding: 3px 7px;
+  font-size: 12px;
+  border-radius: 6px;
+  color: white;
+}
+
+.floor-tabs div button:last-child:hover {
+  background: #922b21;
+}
+
+/* nút + */
+.add-floor {
+  background: linear-gradient(135deg, #c8a97e, #e0c097) !important;
+  color: #4b2e1e;
+  font-weight: bold;
+  font-size: 18px;
+  padding: 6px 14px;
+}
+
+.add-floor:hover {
+  background: linear-gradient(135deg, #b8966d, #d6b589) !important;
+}
+
+/* ===== MAP ===== */
+.map {
+  flex: 1;
+  position: relative;
+  background: linear-gradient(135deg, #f3ede5, #e7dccb);
+  overflow: hidden;
+}
+
+/* ===== TABLE (NEW UI) ===== */
+.table {
+  position: absolute;
+  width: 100px;
+  height: 110px;
+  border-radius: 16px;
+
+  background: linear-gradient(145deg, #d2b48c, #c19a6b);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 10px;
+  cursor: grab;
+  user-select: none;
+
+  box-shadow: 0 6px 14px rgba(0,0,0,0.18);
+  transition: all 0.2s ease;
+}
+
+/* hover */
+.table:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+}
+
+/* drag */
+.table:active {
+  cursor: grabbing;
+  transform: scale(1.08);
+}
+
+/* ===== TABLE CONTENT ===== */
+.table-icon {
+  font-size: 20px;
+}
+
+.table-name {
+  font-weight: 600;
+  color: #4b2e1e;
+}
+
+.table-info {
+  background: rgba(255,255,255,0.7);
+  padding: 4px 10px;
+  border-radius: 10px;
+  font-size: 13px;
+  color: #3e2a1f;
+}
+
+/* ===== SELECTED ===== */
+.table.selected {
+  border: 2px solid #ffcc80;
+}
+
+/* ===== SCROLL ===== */
+.floor-tabs::-webkit-scrollbar {
+  height: 6px;
+}
+
+.floor-tabs::-webkit-scrollbar-thumb {
+  background: #c8a97e;
+  border-radius: 10px;
+} 
