@@ -1,4 +1,4 @@
-/* ==================== Reset ==================== */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
@@ -6,160 +6,232 @@
 }
 
 html, body, .app {
-  height: 100vh;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff8f2;
-  color: #3b2f2f;
+  height: 100%;
+  overflow: hidden; /* 🚫 KHÔNG scroll toàn trang */
+  font-family: 'Segoe UI';
+  background: #fff8f2;
 }
 
 .app {
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
-
-/* ==================== Header ==================== */
+.brand {
+  margin-right: 50px; /* 👈 chỉnh số này theo ý */
+}
+/* HEADER */
 .header {
   height: 60px;
-  background-color: #fff3e6;
+  flex-shrink: 0;
+  background: #fff3e6;
   display: flex;
-  justify-content: space-between;
+    justify-content: flex-start;
   align-items: center;
   padding: 0 24px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  z-index: 10;
 }
 
-.header .brand {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 700;
-  font-size: 20px;
-  color: #c0392b;
-}
-
+/* NAV */
 .nav-links {
   display: flex;
-  gap: 18px;
+  gap: 16px;
 }
 
 .nav-links a {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  text-decoration: none;
-  color: #7a5a50;
-  font-weight: 500;
   padding: 6px 12px;
   border-radius: 8px;
-  transition: all 0.2s ease;
-}
-
-.nav-links a:hover {
-  background-color: #fdd9b5;
-  color: #c0392b;
+  text-decoration: none;
+  color: #7a5a50;
 }
 
 .nav-links a.active {
-  background-color: #c0392b;
-  color: #fff;
+  background: #c0392b;
+  color: white;
 }
 
-/* ==================== Main ==================== */
+/* MAIN */
 .main {
   display: flex;
-  flex: 1; /* chiếm toàn bộ height còn lại */
-  min-height: calc(100vh - 60px);
+  flex: 1;
+  min-height: 0; /* 🔥 QUAN TRỌNG */
 }
 
-/* ==================== Sidebar ==================== */
+/* SIDEBAR */
 .sidebar {
-  flex: 0 0 240px; /* cố định width */
-  display: flex;
-  flex-direction: column;
-  background-color: #8e3b2b;
-  color: #fff;
-  padding: 20px 10px;
-  border-right: 1px solid #a64c3d;
-  transition: width 0.3s ease;
+  width: 240px;
+  background: linear-gradient(180deg, #8e3b2b, #6e2c1e);
+  color: white;
+  padding: 16px;
+
+  height: calc(100vh - 60px); /* 🔥 FIX SCROLL */
+  overflow-y: auto;           /* ⭐ SCROLL RIÊNG */
+  flex-shrink: 0;
 }
 
 .sidebar.collapsed {
-  flex: 0 0 80px;
+  width: 70px;
 }
 
-.sidebar button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 22px;
-  margin-bottom: 24px;
-  color: #fff;
-  transition: color 0.2s;
-}
-
-.sidebar button:hover {
-  color: #f7c873;
-}
-
-.sidebar nav {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  flex: 1; /* kéo nav full height */
-}
-
-.sidebar nav a {
+/* ITEM */
+.sidebar-item {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 14px;
-  text-decoration: none;
-  color: #f0d5c1;
-  font-weight: 500;
+  gap: 10px;
+  padding: 10px;
   border-radius: 8px;
-  transition: all 0.2s ease;
+  color: #f0d5c1;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.sidebar nav a:hover {
-  background-color: #c0392b;
-  color: #fff;
+.sidebar-item:hover {
+  background: #c0392b;
+  transform: translateX(4px);
+  color: white;
 }
 
-.sidebar nav a.active {
-  background-color: #f7c873;
+.sidebar-item.active {
+  background: #f7c873;
   color: #8e3b2b;
 }
 
-.sidebar nav a svg {
-  min-width: 20px;
-  color: inherit;
+/* GROUP */
+.sidebar-group {
+  font-size: 13px;
+  font-weight: 700;
+  margin: 16px 0 10px;
+  color: #ffe08a;
 }
 
-/* ==================== Content ==================== */
+/* COLLAPSE */
+.sidebar.collapsed a span {
+  display: none;
+}
+
+.sidebar.collapsed .sidebar-group {
+  display: none;
+}
+
+/* SUBMENU */
+.submenu {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+  gap: 6px;
+}
+
+.submenu a {
+  padding: 8px 10px;
+  border-radius: 6px;
+  color: #f0d5c1;
+  text-decoration: none;
+}
+
+.submenu a:hover {
+  background: #c0392b;
+  color: white;
+}
+
+.submenu a.active {
+  background: rgba(247, 200, 115, 0.2);
+  color: white;
+}
+
+/* CONTENT */
 .content {
   flex: 1;
-  padding: 24px;
-  overflow-y: auto;
-  background-color: #fff8f2;
-  border-left: 1px solid #f0d5c1;
-  border-radius: 8px;
+  min-height: 0;
+  overflow-y: auto; /* ⭐ content cũng scroll nếu cần */
+  padding: 20px;
+  margin: 12px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.sidebar-group {
+  font-size: 13px;        /* to hơn */
+  font-weight: 700;       /* đậm hơn */
+  margin: 14px 0;
+  color: #ffd37a;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.sidebar-toggle {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 16px;
+  font-weight: bold;
+
+  margin-bottom: 14px;
+  transition: 0.2s;
 }
 
-/* ==================== Responsive ==================== */
-@media (max-width: 768px) {
-  .sidebar {
-    position: absolute;
-    left: -240px;
-    height: calc(100vh - 60px);
-    z-index: 20;
-  }
+.sidebar-toggle:hover {
+  background: rgba(255, 255, 255, 0.25);
+  transform: scale(1.05);
+}
+.user-info {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative; /* 🔥 để menu bám theo */
+}
 
-  .sidebar.collapsed {
-    left: 0;
-  }
+.arrow {
+  font-size: 12px;
+}
 
-  .content {
-    padding: 16px;
-  }
+/* MENU */
+.user-menu {
+  position: absolute;
+  top: 60px;
+  right: 0;
+  background: white;
+  border-radius: 8px;
+  min-width: 140px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.menu-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.menu-item:hover {
+  background: #f5f5f5;
+}
+
+.menu-item.logout {
+  color: red;
+}
+.user-text {
+  display: flex;
+  flex-direction: column; /* 👈 xuống dòng */
+}
+
+.user-text .name {
+  font-weight: 600;
+}
+
+.user-text .role {
+  font-size: 12px;
+  color: #888;
 }

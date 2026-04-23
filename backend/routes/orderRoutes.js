@@ -20,7 +20,17 @@ router.delete("/items/:id", orderController.deleteOrderItem);
 // Cập nhật tất cả món trong 1 order
 router.put("/:orderID/status/all", orderController.updateAllItemsStatus);
 
-router.put("/:orderID/pay", orderController.payOrder);
+router.put("/pay/:orderID", orderController.payOrder);
 router.get("/:id/print", orderController.printOrder);
-
+router.get("/:id/bill", orderController.getBill);
+router.patch(
+  "/order-details/:id/quantity",
+  orderController.updateOrderItem
+);
+router.patch(
+  "/order-details/:id/note",
+  orderController.updateItemNote
+);
+router.post("/orders/merge-tables", orderController.mergeTables);
+router.post("/orders/split-table", orderController.splitTable);
 module.exports = router;
